@@ -80,7 +80,7 @@ roserootfs=${two_dog}/$roserootfs
 echo $roserootfs
 
 echo "Copying rootfs into ${SDCARD}2"
-(echo $pppwd; echo "unit s mkpart primary ext4 147456 $end_size";echo -1; echo Yes; echo q)|sudo -S parted ${SDCARD} 
+(echo $pppwd; echo "unit s mkpart primary ext4 147456 $end_size"; echo Yes; echo q)|sudo -S parted ${SDCARD} 
 $CMD mkfs.ext4 -L system ${SDCARD}2
 $CMD mount ${SDCARD}2 /mnt
 $CMD tar -C /mnt -jxvf $roserootfs --numeric-owner
